@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public abstract class Operation {
-    UUID numero;
-    LocalDateTime date;
-    double montant;
+    protected UUID numero;
+    protected LocalDateTime date;
+    protected double montant;
 }

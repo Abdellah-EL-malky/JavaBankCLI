@@ -4,9 +4,9 @@ import java.util.List;
 import metier.operations.Operation;
 
 public abstract class Compte {
-    String code;
-    double solde;
-    List<Operation> listeOperations;
+    protected String code;
+    protected double solde;
+    protected List<Operation> listeOperations;
 
     public abstract boolean retirer(double montant);
 
