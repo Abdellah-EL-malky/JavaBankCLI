@@ -64,4 +64,19 @@ public class GestionnaireComptes {
             System.out.println("Solde: " + solde + "€");
         }
     }
+
+    public boolean effectuerVirement(String compteDebiteur, String compteCrediteur, double montant) throws CodeCompteInvalideException, SoldeInsuffisantException {
+        Compte compteSource = comptes.get(compteDebiteur);
+        Compte compteDestination = comptes.get(compteCrediteur);
+
+        if (compteSource == null || compteDestination == null) {
+            throw new CodeCompteInvalideException(Constants.MSG_COMPTE_INEXISTANT);
+        }
+
+        compteSource.retirer(montant);
+        compteDestination.verser(montant);
+
+        System.out.println("Virement de " + montant + "€ effectué de " + compteDebiteur + " vers " + compteCrediteur);
+        return true;
+    }
 }
