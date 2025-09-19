@@ -278,7 +278,10 @@ public class MenuPrincipal {
         }
     }
 
-
+    private static void afficherDetailsCompte() {
+        System.out.println("\n--- DÉTAILS DU COMPTE ---");
+        System.out.println("Maintenance");
+    }
 
     private static void attendreAppuiTouche() {
         System.out.println("\nAppuyez sur Entrée pour continuer...");
