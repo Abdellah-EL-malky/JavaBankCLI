@@ -12,7 +12,8 @@ public class CompteCourant extends Compte{
         this.decouvert = decouvert;
     }
 
-    public  boolean retirer(double montant) throws SoldeInsuffisantException{
+    @Override
+    public boolean retirer(double montant) throws SoldeInsuffisantException{
 
         if((solde - montant) >= -decouvert) {
             this.solde = solde - montant;
@@ -25,11 +26,13 @@ public class CompteCourant extends Compte{
 
     }
 
-    public  double calculerInteret(){
+    @Override
+    public double calculerInteret(){
     return 0;
     }
 
-    public  void afficherDetails(){
+    @Override
+    public void afficherDetails(){
         System.out.println("=== COMPTE COURANT ===");
         System.out.println("Code: " + this.code);
         System.out.println("Solde: " + this.solde + "€");

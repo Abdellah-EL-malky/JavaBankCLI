@@ -12,6 +12,7 @@ public class CompteEpargne extends Compte{
         this.tauxInteret = tauxInteret;
     }
 
+    @Override
     public  boolean retirer(double montant) throws SoldeInsuffisantException{
         if(solde >= montant) {
             this.solde = solde - montant;
@@ -23,10 +24,12 @@ public class CompteEpargne extends Compte{
         }
     }
 
+    @Override
     public  double calculerInteret(){
         return solde * tauxInteret;
     }
 
+    @Override
     public  void afficherDetails(){
         System.out.println("=== COMPTE EPARGNE ===");
         System.out.println("Code: " + this.code);
