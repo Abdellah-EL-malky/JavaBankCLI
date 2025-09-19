@@ -12,6 +12,10 @@ public class CompteEpargne extends Compte{
         this.tauxInteret = tauxInteret;
     }
 
+    public double getTauxInteret() {
+        return tauxInteret;
+    }
+
     @Override
     public  boolean retirer(double montant) throws SoldeInsuffisantException{
         if(solde >= montant) {

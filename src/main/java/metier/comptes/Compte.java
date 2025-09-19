@@ -5,6 +5,7 @@ import java.util.List;
 
 import exceptions.SoldeInsuffisantException;
 import metier.operations.Operation;
+import metier.operations.Versement;
 
 public abstract class Compte {
     protected String code;
@@ -17,10 +18,24 @@ public abstract class Compte {
         this.listeOperations = new ArrayList<>();
     }
 
+    public double getSolde() {
+        return solde;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
     public abstract boolean retirer(double montant) throws SoldeInsuffisantException;
 
     public abstract double calculerInteret();
 
     public abstract void afficherDetails();
+
+    public void verser(double montant) {
+        this.solde = solde + montant;
+        Versement operation = new Versement(montant, "Dépôt espèces");
+        listeOperations.add(operation);
+    }
 }
 

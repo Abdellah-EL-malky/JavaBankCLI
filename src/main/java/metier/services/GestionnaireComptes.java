@@ -1,9 +1,13 @@
 package metier.services;
 
 import java.util.HashMap;
+
+import exceptions.CodeCompteInvalideException;
+import exceptions.SoldeInsuffisantException;
 import metier.comptes.Compte;
 import metier.comptes.CompteCourant;
 import metier.comptes.CompteEpargne;
+import utilitaire.Constants;
 
 public class GestionnaireComptes {
     private int compteurCode = 1;
@@ -30,15 +34,34 @@ public class GestionnaireComptes {
         return code;
     }
 
-    public boolean effectuerVersement(String codeCompte, double montant){
+    public boolean effectuerVersement(String codeCompte, double montant) throws CodeCompteInvalideException{
+        Compte compte = comptes.get(codeCompte);
+        if (compte == null){
+        throw new CodeCompteInvalideException(Constants.MSG_COMPTE_INEXISTANT);
+        } else {
+            compte.verser(montant);
+            return true;
+        }
+    }
+
+    public boolean effectuerRetrait(String codeCompte, double montant) throws CodeCompteInvalideException, SoldeInsuffisantException {
+        Compte compte = comptes.get(codeCompte);
+        if (compte == null){
+            throw new CodeCompteInvalideException(Constants.MSG_COMPTE_INEXISTANT);
+        } else {
+            compte.retirer(montant);
+            return true;
+        }
 
     }
 
-    public boolean effectuerRetrait(String codeCompte, double montant){
-
-    }
-
-    public void consulterSolde(String codeCompte){
-
+    public void consulterSolde(String codeCompte) throws CodeCompteInvalideException{
+        Compte compte = comptes.get(codeCompte);
+        if (compte == null){
+            throw new CodeCompteInvalideException(Constants.MSG_COMPTE_INEXISTANT);
+        } else {
+            double solde = compte.getSolde();
+            System.out.println("Solde: " + solde + "€");
+        }
     }
 }

@@ -12,6 +12,10 @@ public class CompteCourant extends Compte{
         this.decouvert = decouvert;
     }
 
+    public double getDecouvert() {
+        return decouvert;
+    }
+
     @Override
     public boolean retirer(double montant) throws SoldeInsuffisantException{
 

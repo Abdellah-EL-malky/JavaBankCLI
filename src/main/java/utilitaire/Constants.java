@@ -9,4 +9,5 @@ public class Constants{
     public static final String MSG_SOLDE_INSUFFISANT = "Solde insuffisant pour cette opération";
     public static final String MSG_MONTANT_NEGATIF = "Le montant doit être positif";
     public static final String MSG_CODE_INVALIDE = "Format de code compte invalide. Format attendu: CPT-XXXXX";
+    public static final String MSG_COMPTE_INEXISTANT = "Nous n'avons pas de compte correspondant à ce code";
 }
